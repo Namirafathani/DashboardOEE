@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Productivity Measurement</title>
+
+<!-- Style CSS -->
+<link rel="stylesheet" href="css/style.css">
+<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<style>
+    body {
+        font-family: "Arial", sans-serif;
+    }
+    
+    .bar {
+        fill: #5f89ad;
+    }
+    
+    .axis {
+        font-size: 13px;
+    }
+    
+    .axis path,
+    .axis line {
+        fill: none;
+        display: none;
+    }
+    
+    .label {
+        font-size: 13px;
+    }
+</style>
+
+</head>
+<body>
+    <h1>Industrial Productivity Measurement</h1>
+    <form action="">
+        <p>Select Unit<br>
+        <select name="Unit">
+            <option value="All Unit">All Units</option>
+            <option value="Mesin 1">Mesin 1</option>
+            <option value="Mesin 2">Mesin 2</option>
+            <option value="Mesin 3">Mesin 3</option>
+        </select>
+        </p>
+
+        <p>Select View <br>
+            <select name="Waktu">
+                <option value="View1">Yesterday</option>
+                <option value="View2">Today</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="SetWaktu">Start Time:<br></label>
+            <input type="date" name="tglwaktu" />
+            <input type="submit" value="Submit" />
+        </p>
+
+        <p>
+            <label for="SetWaktuAkhir">End Time:<br></label>
+            <input type="date" name="tglwaktu" />
+            <input type="submit" value="Submit" />
+        </p>
+    </form>
+
+    <section>
+        <div class="rt-container">
+              <div class="col-rt-12">
+                  <div class="Scriptcontent">
+         <!-- partial:index.partial.html -->
+    <div class="svg-item">
+      <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+        <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="#fff"></circle>
+        <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"></circle>
+        <circle class="donut-segment donut-segment-2" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5" stroke-dasharray="69 31" stroke-dashoffset="25"></circle>
+        <g class="donut-text donut-text-1">
+    
+          <text y="50%" transform="translate(0, 2)">
+            <tspan x="50%" text-anchor="middle" class="donut-percent">69%</tspan>   
+          </text>
+          <text y="60%" transform="translate(0, 2)">
+            <tspan x="50%" text-anchor="middle" class="donut-data">OEE</tspan>   
+          </text>
+        </g>
+      </svg>
+    </div>
+    <div class="svg-item">
+      <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+        <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="#fff"></circle>
+        <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"></circle>
+        <circle class="donut-segment donut-segment-3" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5" stroke-dasharray="30 70" stroke-dashoffset="25"></circle>
+        <g class="donut-text donut-text-2">
+    
+          <text y="50%" transform="translate(0, 2)">
+            <tspan x="50%" text-anchor="middle" class="donut-percent">30%</tspan>   
+          </text>
+          <text y="60%" transform="translate(0, 2)">
+            <tspan x="50%" text-anchor="middle" class="donut-data">AVAILABILITY</tspan>   
+          </text>
+        </g>
+      </svg>
+    </div>
+    
+    <div class="svg-item">
+      <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+        <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="#fff"></circle>
+        <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"></circle>
+        <circle class="donut-segment donut-segment-4" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5" stroke-dasharray="1 99" stroke-dashoffset="25"></circle>
+        <g class="donut-text donut-text-3">
+    
+          <text y="50%" transform="translate(0, 2)">
+            <tspan x="50%" text-anchor="middle" class="donut-percent">1%</tspan>   
+          </text>
+          <text y="60%" transform="translate(0, 2)">
+            <tspan x="50%" text-anchor="middle" class="donut-data">PRODUCTIVITY</tspan>   
+          </text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="svg-item">
+        <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+          <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="#fff"></circle>
+          <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"></circle>
+          <circle class="donut-segment donut-segment-4" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5" stroke-dasharray="1 99" stroke-dashoffset="25"></circle>
+          <g class="donut-text donut-text-3">
+      
+            <text y="50%" transform="translate(0, 2)">
+              <tspan x="50%" text-anchor="middle" class="donut-percent">1%</tspan>   
+            </text>
+            <text y="60%" transform="translate(0, 2)">
+              <tspan x="50%" text-anchor="middle" class="donut-data">QUALITY</tspan>   
+            </text>
+          </g>
+        </svg>
+      </div>
+    <!-- partial -->
+      
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="graphic"></div>
+
+    <script>
+        var data = [{
+                "name": "Apples",
+                "value": 20,
+        },
+            {
+                "name": "Bananas",
+                "value": 12,
+        },
+            {
+                "name": "Grapes",
+                "value": 19,
+        },
+            {
+                "name": "Lemons",
+                "value": 5,
+        },
+            {
+                "name": "Limes",
+                "value": 16,
+        },
+            {
+                "name": "Oranges",
+                "value": 26,
+        },
+            {
+                "name": "Pears",
+                "value": 30,
+        }];
+
+        //sort bars based on value
+        data = data.sort(function (a, b) {
+            return d3.ascending(a.value, b.value);
+        })
+
+        //set up svg using margin conventions - we'll need plenty of room on the left for labels
+        var margin = {
+            top: 15,
+            right: 25,
+            bottom: 15,
+            left: 60
+        };
+
+        var width = 960 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
+
+        var svg = d3.select("#graphic").append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var x = d3.scale.linear()
+            .range([0, width])
+            .domain([0, d3.max(data, function (d) {
+                return d.value;
+            })]);
+
+        var y = d3.scale.ordinal()
+            .rangeRoundBands([height, 0], .1)
+            .domain(data.map(function (d) {
+                return d.name;
+            }));
+
+        //make y axis to show bar names
+        var yAxis = d3.svg.axis()
+            .scale(y)
+            //no tick marks
+            .tickSize(0)
+            .orient("left");
+
+        var gy = svg.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+
+        var bars = svg.selectAll(".bar")
+            .data(data)
+            .enter()
+            .append("g")
+
+        //append rects
+        bars.append("rect")
+            .attr("class", "bar")
+            .attr("y", function (d) {
+                return y(d.name);
+            })
+            .attr("height", y.rangeBand())
+            .attr("x", 0)
+            .attr("width", function (d) {
+                return x(d.value);
+            });
+
+        //add a value label to the right of each bar
+        bars.append("text")
+            .attr("class", "label")
+            //y position of the label is halfway down the bar
+            .attr("y", function (d) {
+                return y(d.name) + y.rangeBand() / 2 + 4;
+            })
+            //x position is 3 pixels to the right of the bar
+            .attr("x", function (d) {
+                return x(d.value) + 3;
+            })
+            .text(function (d) {
+                return d.value;
+            });
+        
+    </script>
+
+</body>
+</html>
